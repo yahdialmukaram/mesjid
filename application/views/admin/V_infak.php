@@ -282,6 +282,7 @@
 			<div class="modal-body">
 <?php
 $no=1;
+
  foreach ($tb_infak as $key => $value):?>
 
 				<form action="<?=base_url();?>c_admin/save_edit" method="POST">
