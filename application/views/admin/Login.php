@@ -48,7 +48,7 @@
 						</div>
 						<div>
 							<!-- <a class="btn btn-default submit" href="<?=base_url();?>">Log in</a> -->
-							<button type="submit"  class="btn btn primary">Login</button>
+							<button type="submit"  class="btn btn submit">Login</button>
 							<!-- <a class="reset_pass" href="#">Lost your password?</a> -->
 						</div>
 
