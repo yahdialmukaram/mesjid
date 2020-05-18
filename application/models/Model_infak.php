@@ -8,7 +8,7 @@ class Model_infak extends CI_Model {
     var $table = 'tb_infak'; //nama tabel dari database
 	var $column_order = array(null, 'nama','keterangan','tanggal','jumlah'); //field yang ada di table user
 	var $column_search = array('nama','keterangan','tanggal','jumlah'); //field yang diizin untuk pencarian 
-	var $order = array('id_infak' => 'asc'); // default order 
+	var $order = array('id_infak' => 'desc'); // default order 
 
 	public function __construct()
 	{

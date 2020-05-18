@@ -32,7 +32,8 @@ class Api extends CI_Controller {
             $row[] = $field->nama;
             $row[] = $field->keterangan;
             $row[] = $field->tanggal;
-            $row[] = $field->jumlah;
+			$row[] = $field->jumlah;
+			$row[]=$field->id_infak;
             $data[] = $row;
         }
 		$reponse['status']=200;
@@ -71,6 +72,15 @@ class Api extends CI_Controller {
 		$reponse['message']='Data berhasil di edit';
 		}
 		$reponse['data']=$data;
+		echo json_encode($reponse);
+	}
+	public function delete_data_infak()
+	{
+		$id=$this->input->get('id');
+		$this->api->delete_data_infak($id);
+		$reponse['status']=200;
+		$reponse['message']='Data berhasil di hapus';
+		$reponse['id']=$id;
 		echo json_encode($reponse);
 	}
 	
