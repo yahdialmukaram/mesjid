@@ -20,10 +20,9 @@ class C_admin extends CI_Controller {
     }
     public function v_infak()
     {
-        $data['tb_infak'] = $this->Model->tampil_infak();
         
         $this->load->view('admin/header');
-        $this->load->view('admin/v_infak',$data);
+        $this->load->view('admin/v_infak');
         $this->load->view('admin/footer');
         
     }

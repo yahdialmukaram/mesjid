@@ -56,8 +56,10 @@
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="<?=base_url();?>assets/vendors/pdfmake/build/vfs_fonts.js"></script>
     
-    <!-- Custom Theme Scripts -->
+		<!-- Custom Theme Scripts -->
+		<script>let url="<?=base_url();?>";</script>
     <script src="<?= base_url();?>assets/build/js/custom.min.js"></script>
+		<script src="<?=base_url();?>assets/vendors/costume/admin-costume.js"></script>
     <script>
     $('#myDatepicker').datetimepicker();
     
