@@ -31,4 +31,11 @@ class Model extends CI_Model
         
         
     }
+    public function check_account($username,$password)
+    {
+        $this->db->from('tb_user');
+        $this->db->where('username', $username);
+        $this->db->where('password', $password);
+        return $this->db->get();
+    }
 }
