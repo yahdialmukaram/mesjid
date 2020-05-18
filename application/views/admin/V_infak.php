@@ -151,8 +151,7 @@
 						<div class="clearfix"></div>
 					</div>
 					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary fa fa-plus" data-toggle="modal"
-						data-target="#exampleModal">
+					<button type="button" class="btn btn-primary fa fa-plus tambah-infak" >
 						Tambah Infaq
 					</button>
 
@@ -173,7 +172,7 @@
 
 					<div class="x_content">
 
-						<table id="datatable" class="table table-striped table-bordered">
+						<table id="table_infak" class="table table-striped table-bordered">
 							<thead>
 								<tr style="background-color: rgba(5, 24, 24, 0.205);">
 									<th>No</th>
@@ -184,8 +183,8 @@
 									<th>Aksi</th>
 								</tr>
 							</thead>
-							<tbody>
-								<?php
+							<tbody id="">
+								<!-- <?php
                                 $no = 1;
                                 foreach ($tb_infak as $key => $value):?>
 								<tr>
@@ -196,12 +195,12 @@
 									<td><?="Rp ".number_format($value['jumlah']);?></td>
 									<td>
 										<a href="<?php echo base_url(); ?>c_admin/edit_infak/<?php echo $value['id_infak']; ?>"
-											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
+											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> </a>
 										<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
 								</tr>
 
-								<?php endforeach; ?>
+								<?php endforeach; ?> -->
 
 							</tbody>
 						</table>
@@ -216,7 +215,7 @@
 <!-- /page content -->
 
 <!-- Modal tambah infak-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="modal-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -228,28 +227,27 @@
 			</div>
 			<div class="modal-body">
 
-
-				<form action="<?=base_url();?>c_admin/save_infak" method="POST">
+				<input type="hidden" id="id" value="">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama</label>
-						<input type="text" name="nama" class="form-control" placeholder="Input nama" required>
+						<input type="text" name="nama" id="nama" class="form-control" placeholder="Input nama" required>
 
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" class="form-control" placeholder="Input keterangan"
+						<input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Input keterangan"
 							required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Jumlah</label>
-						<input type="text" name="jumlah" class="form-control" placeholder="Input jumlah" required>
+						<input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Tanggal</label>
 						<div class='input-group date' id='myDatepicker'>
-							<input type='text' name="tanggal" placeholder="Masukan tanggal" required
+							<input type='text' name="tanggal" id="tanggal" placeholder="Masukan tanggal" required
 								class="form-control" />
 							<span class="input-group-addon">
 								<span class="glyphicon glyphicon-calendar"></span>
@@ -259,68 +257,11 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="button" class="btn btn-primary simpan-data">Save</button>
 			</div>
-			</form>
 		</div>
 	</div>
 </div>
-
-
-<!-- Modal edit infak-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-	aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body">
-<?php
-$no=1;
-
- foreach ($tb_infak as $key => $value):?>
-
-				<form action="<?=base_url();?>c_admin/save_edit" method="POST">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama</label>
-						<input type="text" name="nama" class="form-control" placeholder="Input nama" required>
-
-					</div>
-					<div class="form-group">
-						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" class="form-control" placeholder="Input keterangan"
-							required>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputPassword1">Jumlah</label>
-						<input type="text" name="jumlah" class="form-control" placeholder="Input jumlah" required>
-					</div>
-
-					<div class="form-group">
-						<label for="exampleInputPassword1">Tanggal</label>
-						<div class='input-group date' id='myDatepicker'>
-							<input type='text' name="tanggal" placeholder="Masukan tanggal" required
-								class="form-control" />
-							<span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
-							</span>
-						</div>
-					</div>
-            </div>
-			<div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save</button>
-			</div>
-        </form>
-    </div>
-</div>
-</div>
-<?php endforeach; ?>
 
 
 
