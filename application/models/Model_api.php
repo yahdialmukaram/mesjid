@@ -30,8 +30,8 @@ class Model_api extends CI_Model
     }
     public function delete_data_infak($id)
     {
-        $this->db->where('id_infak', $id);
-        $this->db->from('tb_infak');
+		$this->db->where('id_infak', $id);
+		$this->db->delete('tb_infak');
     }
 
 }

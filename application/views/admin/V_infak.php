@@ -150,11 +150,11 @@
 
 						<div class="clearfix"></div>
 					</div>
+					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
 					<button type="button" class="btn btn-primary fa fa-plus tambah-infak" >
 						Tambah Infaq
 					</button>
-
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
 					<div id="pesan" class="alert alert-success" role="alert">
@@ -258,6 +258,27 @@
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				<button type="button" class="btn btn-primary simpan-data">Save</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="konfirmasi_delete_data" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Konfirmasi hapus data</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+			</div>
+			<div class="modal-body">
+				Yakin akan hapus data ini ?
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+				<button type="button" class="btn btn-primary ya-hapus-data">Ya</button>
 			</div>
 		</div>
 	</div>
