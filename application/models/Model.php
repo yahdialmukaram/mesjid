@@ -38,4 +38,14 @@ class Model extends CI_Model
         $this->db->where('password', $password);
         return $this->db->get();
     }
+    public function hitung_jumlah()
+    {
+   
+    $this->db->select('SUM(jumlah) as total');
+    $this->db->from('tb_infak');
+    $this->db->where('jumlah');
+ return   $this->db->get()->row()->total;
+
+    }
+    
 }

@@ -180,6 +180,7 @@
 									<th>Keterangan</th>
 									<th>Tanggal</th>
 									<th>Jumlah</th>
+								
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -192,7 +193,8 @@
 									<td><?=$value['nama'];?></td>
 									<td><?=$value['keterangan'];?></td>
 									<td><?=$value['tanggal'];?></td>
-									<td><?="Rp ".number_format($value['jumlah']);?></td>
+									<td><?="Rp. ".number_format($value['jumlah']);?></td>
+			
 									<td>
 										<a href="<?php echo base_url(); ?>c_admin/edit_infak/<?php echo $value['id_infak']; ?>"
 											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> </a>
@@ -201,6 +203,15 @@
 								</tr>
 
 								<?php endforeach; ?> 
+								<tfoot>
+ 									<th> </th>
+ 									<th> </th>
+ 									<th> </th>
+
+ 									<th>Total :</th>
+ 									<th><?= 'Rp.' . ($total);?></th>
+ 							
+ 								</tfoot>
 
 							</tbody>
 						</table>
