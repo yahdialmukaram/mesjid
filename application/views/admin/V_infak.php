@@ -172,7 +172,7 @@
 
 					<div class="x_content">
 
-						<table id="table_infak" class="table table-striped table-bordered">
+					<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr style="background-color: rgba(5, 24, 24, 0.205);">
 									<th>No</th>
@@ -183,8 +183,8 @@
 									<th>Aksi</th>
 								</tr>
 							</thead>
-							<tbody id="">
-								<!-- <?php
+							<tbody>
+								<?php
                                 $no = 1;
                                 foreach ($tb_infak as $key => $value):?>
 								<tr>
@@ -200,7 +200,7 @@
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
 								</tr>
 
-								<?php endforeach; ?> -->
+								<?php endforeach; ?> 
 
 							</tbody>
 						</table>
@@ -227,27 +227,27 @@
 			</div>
 			<div class="modal-body">
 
-				<input type="hidden" id="id" value="">
+			<form action="<?=base_url();?>c_admin/save_infak" method="POST">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama</label>
-						<input type="text" name="nama" id="nama" class="form-control" placeholder="Input nama" required>
+						<input type="text" name="nama" class="form-control" placeholder="Input nama" required>
 
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Input keterangan"
+						<input type="text" name="keterangan" class="form-control" placeholder="Input keterangan"
 							required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Jumlah</label>
-						<input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah" required>
+						<input type="text" name="jumlah" class="form-control" placeholder="Input jumlah" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Tanggal</label>
 						<div class='input-group date' id='myDatepicker'>
-							<input type='text' name="tanggal" id="tanggal" placeholder="Masukan tanggal" required
+							<input type='text' name="tanggal" placeholder="Masukan tanggal" required
 								class="form-control" />
 							<span class="input-group-addon">
 								<span class="glyphicon glyphicon-calendar"></span>
@@ -257,32 +257,15 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary simpan-data">Save</button>
+				<button type="submit" class="btn btn-primary">Save</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="konfirmasi_delete_data" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-	<div class="modal-dialog modal-sm" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Konfirmasi hapus data</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-			</div>
-			<div class="modal-body">
-				Yakin akan hapus data ini ?
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
-				<button type="button" class="btn btn-primary ya-hapus-data">Ya</button>
-			</div>
-		</div>
-	</div>
-</div>
+
+<!-- Modal edit infak-->
 
 
 
