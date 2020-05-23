@@ -21,13 +21,18 @@ class C_admin extends CI_Controller {
     }
     public function v_infak()
     {
-        
-        $jumlah ['total']= $this->Model->hitung_jumlah();
+		
+		$infak=$this->Model->tampil_infak();
+		foreach ($infak as $key => $value) {
+			$jumlah[]=$value['jumlah'];
+		}
+        $data ['total']= array_sum($jumlah);
         $data['tb_infak']=$this->Model->tampil_infak();
         
         $this->load->view('admin/header');
-        $this->load->view('admin/v_infak',$data,$jumlah);
-        $this->load->view('admin/footer');
+        $this->load->view('admin/v_infak',$data);
+		$this->load->view('admin/footer');
+		// print_r($data);
         
     }
 

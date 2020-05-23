@@ -209,7 +209,7 @@
  									<th> </th>
 
  									<th>Total :</th>
- 									<th><?= 'Rp.' . ($total);?></th>
+ 									<th><?= 'Rp.' . number_format($total);?></th>
  							
  								</tfoot>
 
