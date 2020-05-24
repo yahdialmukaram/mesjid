@@ -30,7 +30,13 @@ class Model extends CI_Model
         
         
         
-    }
+	}
+	public function save_infak_edit($id,$data)
+	{
+		$this->db->where('id_infak', $id);
+		$this->db->update('tb_infak', $data);
+		
+	}
     public function check_account($username,$password)
     {
         $this->db->from('tb_user');

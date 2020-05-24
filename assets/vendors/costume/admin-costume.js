@@ -13,7 +13,7 @@ function table_infak() {
 
 		"processing": true,
 		"serverSide": true,
-		"destroy":true,
+		"destroy": true,
 		"order": [],
 
 		"ajax": {
@@ -26,8 +26,8 @@ function table_infak() {
 			"aTargets": [5],
 			"mRender": function (data, type, row) {
 				return `<a href="#"
-					class="btn btn-info btn-xs edit-infak" onclick="edit_data(`+row[5]+`)" > <i class="fa fa-edit"></i></a>
-				<a href="#"	class="btn btn-danger btn-xs" onclick="delete_data(`+row[5]+`)"> <i class="fa fa-trash"></i> </a>`
+					class="btn btn-info btn-xs edit-infak" onclick="edit_data(` + row[5] + `)" > <i class="fa fa-edit"></i></a>
+				<a href="#"	class="btn btn-danger btn-xs" onclick="delete_data(` + row[5] + `)"> <i class="fa fa-trash"></i> </a>`
 			}
 		}],
 
@@ -40,28 +40,32 @@ $(".tambah-infak").click(function (e) {
 	$("#modal-crud").modal("show");
 });
 // fungsi edit
-function edit_data(id) { 
+function edit_data(id) {
 	$.ajax({
 		type: "GET",
-		url: url+"api/edit_data_infak",
-		data: {id:id},
+		url: url + "api/edit_data_infak",
+		data: {
+			id: id
+		},
 		dataType: "JSON",
 		success: function (response) {
 			view_data_edit(response);
 		}
 	});
- }
+}
 //  fungsi delete data
-function delete_data(id) { 
+function delete_data(id) {
 	$("#konfirmasi_delete_data").modal("show");
-	$(".ya-hapus-data").click(function (e) { 
+	$(".ya-hapus-data").click(function (e) {
 		$.ajax({
 			type: "GET",
-			url: url+"api/delete_data_infak",
-			data: {id:id},
+			url: url + "api/delete_data_infak",
+			data: {
+				id: id
+			},
 			dataType: "JSON",
 			success: function (response) {
-				if (response.status==200) {
+				if (response.status == 200) {
 					$("#konfirmasi_delete_data").modal("hide");
 					message_alert(response);
 					table_infak();
@@ -69,38 +73,41 @@ function delete_data(id) {
 			}
 		});
 	});
- }
+}
 
 //  fungsi view data edit
-function view_data_edit(response) { 
+function view_data_edit(response) {
 	$("#nama").val(response.data.nama);
 	$("#keterangan").val(response.data.keterangan);
 	$("#jumlah").val(response.data.jumlah);
 	$("#tanggal").val(response.data.tanggal);
 	$("#id").val(response.data.id);
 	$("#modal-crud").modal("show");
- }
+}
 // fungsi store data
 $(".simpan-data").click(function (e) {
-	
-		// alert(alert);
+
+	// alert(alert);
 	let data = get_value();
 	console.log(data);
-	
+
 	if (data.nama == "" || data.keterangan == "" || data.jumlah == "" || data.tanggal == "") {
 		$("#modal-crud").modal("hide");
-		let alert={status:400,message:"inputan tidak boleh kosong"};
+		let alert = {
+			status: 400,
+			message: "inputan tidak boleh kosong"
+		};
 		message_alert(alert);
 	} else {
-		let jenis_store='';
-		if (data.id=="") {
-			jenis_store="save";
-		}else{
-			jenis_store="edit";
+		let jenis_store = '';
+		if (data.id == "") {
+			jenis_store = "save";
+		} else {
+			jenis_store = "edit";
 		}
 		$.ajax({
 			type: "POST",
-			url: url + "api/store_data_infak/"+jenis_store,
+			url: url + "api/store_data_infak/" + jenis_store,
 			data: data,
 			dataType: "JSON",
 			success: function (response) {
@@ -143,7 +150,7 @@ function get_value() {
 
 // fungsi aler
 function message_alert(data) {
-	let class_alert='';
+	let class_alert = '';
 	if (data.status == 200) {
 		class_alert = `alert alert-success`;
 	} else {
@@ -154,3 +161,31 @@ function message_alert(data) {
 </div>`;
 	$("#show-alert").html(html);
 }
+
+// perintah untuk edit data
+$(".edit-infak").click(function (e) {
+	let id = $(this).attr('data-target');
+	$.ajax({
+		type: "GET",
+		url: url + 'c_admin/edit_infak/' + id,
+		data: {
+			id: id
+		},
+		dataType: "JSON",
+		success: function (response) {
+			$("#nama").val(response.nama);
+			$("#keterangan").val(response.keterangan);
+			$("#jumlah").val(response.jumlah);
+			$("#tanggal").val(response.tanggal);
+			$("#form").attr('action', url + 'c_admin/save_infak_edit');
+			$("#modal-crud").modal("show");
+		}
+	});
+});
+
+// mengembalikan fungsi tambah ke semula
+$(".tambah-infak").click(function (e) {
+	bersihkan();
+	$("#form").attr('action', url + 'c_admin/save_infak');
+	$("#modal-crud").modal("show");
+});

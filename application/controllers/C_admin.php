@@ -59,13 +59,29 @@ class C_admin extends CI_Controller {
         
         
     }
-    public function edit_infak($id)
+    public function edit_infak()
     {
-        $data['edit'] = $this->Model->edit_infak($id);
+		$id=$this->input->get('id');
+        $data= $this->Model->edit_infak($id);
+        echo json_encode($data);
+        // $this->load->view('admin/header');
+        // $this->load->view('admin/v_infak',$data);
+        // $this->load->view('admin/footer');
         
-        $this->load->view('admin/header');
-        $this->load->view('admin/v_infak',$data);
-        $this->load->view('admin/footer');
+	}
+	public function save_infak_edit($id)
+    {
+        $data = [
+            'nama' => $this->input->post('nama'),
+            'keterangan' => $this->input->post('keterangan'),
+            'tanggal' => date('d-m-Y H:i:s'),
+            'jumlah' => $this->input->post('jumlah'),
+            
+        ];
+        $this->Model->save_infak_edit($id,$data);
+        $this->session->set_flashdata('success', 'data behasil di edit');
+        
+        redirect('c_admin/v_infak');
         
     }
 

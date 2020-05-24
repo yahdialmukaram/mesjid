@@ -152,7 +152,7 @@
 					</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary fa fa-plus tambah-infak" >
+					<button type="button" class="btn btn-primary fa fa-plus tambah-infak">
 						Tambah Infaq
 					</button>
 					<!-- alert simpan data -->
@@ -172,7 +172,7 @@
 
 					<div class="x_content">
 
-					<table id="datatable" class="table table-striped table-bordered">
+						<table id="datatable" class="table table-striped table-bordered">
 							<thead>
 								<tr style="background-color: rgba(5, 24, 24, 0.205);">
 									<th>No</th>
@@ -193,23 +193,23 @@
 									<td><?=$value['keterangan'];?></td>
 									<td><?=$value['tanggal'];?></td>
 									<td><?="Rp. ".number_format($value['jumlah']);?></td>
-			
-									<td>
-										<a href="<?php echo base_url(); ?>c_admin/edit_infak/<?php echo $value['id_infak']; ?>"
-											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> </a>
-										<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
-											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
-								</tr>
-								<?php endforeach; ?> 
-								<tfoot>
- 									<th> </th>
- 									<th> </th>
- 									<th> </th>
 
- 									<th>Total :</th>
- 									<th><?= 'Rp.' . number_format($total);?></th>
- 							
- 								</tfoot>
+									<td>
+										<a href="#" data-target="<?php echo $value['id_infak']; ?>"
+											class="btn btn-info btn-xs edit-infak"> <i class="fa fa-edit"></i>
+											<a href="#" data-target="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
+												class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
+								</tr>
+								<?php endforeach; ?>
+							<tfoot>
+								<th> </th>
+								<th> </th>
+								<th> </th>
+
+								<th>Total :</th>
+								<th><?= 'Rp.' . number_format($total);?></th>
+
+							</tfoot>
 
 							</tbody>
 						</table>
@@ -236,27 +236,27 @@
 			</div>
 			<div class="modal-body">
 
-			<form action="<?=base_url();?>c_admin/save_infak" method="POST">
+				<form action="<?=base_url();?>c_admin/save_infak" method="POST">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama</label>
-						<input type="text" name="nama" class="form-control" placeholder="Input nama" required>
+						<input type="text" name="nama" id="nama" class="form-control" placeholder="Input nama" required>
 
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" class="form-control" placeholder="Input keterangan"
+						<input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Input keterangan"
 							required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Jumlah</label>
-						<input type="text" name="jumlah" class="form-control" placeholder="Input jumlah" required>
+						<input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Tanggal</label>
 						<div class='input-group date' id='myDatepicker'>
-							<input type='text' name="tanggal" placeholder="Masukan tanggal" required
+							<input type='text' name="tanggal" id="tanggal" placeholder="Masukan tanggal" required
 								class="form-control" />
 							<span class="input-group-addon">
 								<span class="glyphicon glyphicon-calendar"></span>
@@ -272,6 +272,3 @@
 		</div>
 	</div>
 </div>
-
-
-
