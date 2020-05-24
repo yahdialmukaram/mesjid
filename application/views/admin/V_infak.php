@@ -197,7 +197,7 @@
 									<td>
 										<a href="#" data-target="<?php echo $value['id_infak']; ?>"
 											class="btn btn-info btn-xs edit-infak"> <i class="fa fa-edit"></i>
-											<a href="#" data-target="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
+											<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>" data-target="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
 												class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
 								</tr>
 								<?php endforeach; ?>
