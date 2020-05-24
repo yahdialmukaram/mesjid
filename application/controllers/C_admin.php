@@ -20,8 +20,7 @@ class C_admin extends CI_Controller {
         
     }
     public function v_infak()
-    {
-		
+    { 
 		$infak=$this->Model->tampil_infak();
 		foreach ($infak as $key => $value) {
 			$jumlah[]=$value['jumlah'];
@@ -60,13 +59,13 @@ class C_admin extends CI_Controller {
         
         
     }
-    public function edit_infak()
+    public function edit_infak($id)
     {
-        // $data['edit'] = $this->Model->edit_infak($id);
+        $data['edit'] = $this->Model->edit_infak($id);
         
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/edit_infak',$data);
-        // $this->load->view('admin/footer');
+        $this->load->view('admin/header');
+        $this->load->view('admin/v_infak',$data);
+        $this->load->view('admin/footer');
         
     }
 

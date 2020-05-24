@@ -13,7 +13,7 @@
 			<div class="modal-body">
 <?php foreach ($edit as $key => $value):?>
 
-				<form action="<?=base_url();?>c_admin/save_edit" method="POST">
+				<form action="<?=base_url();?>c_admin/update_infak" method="POST">
 					<div class="form-group">
 						<label for="exampleInputEmail1">Nama</label>
 						<input type="text" name="nama" class="form-control" placeholder="Input nama" required>

@@ -180,7 +180,6 @@
 									<th>Keterangan</th>
 									<th>Tanggal</th>
 									<th>Jumlah</th>
-								
 									<th>Aksi</th>
 								</tr>
 							</thead>
@@ -201,7 +200,6 @@
 										<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
 								</tr>
-
 								<?php endforeach; ?> 
 								<tfoot>
  									<th> </th>
@@ -274,9 +272,6 @@
 		</div>
 	</div>
 </div>
-
-
-<!-- Modal edit infak-->
 
 
 
