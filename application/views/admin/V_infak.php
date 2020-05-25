@@ -152,9 +152,10 @@
 					</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
-					<button type="button" class="btn btn-primary fa fa-plus tambah-infak">
-						Tambah Infaq
-					</button>
+
+					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
+  Tambah Infak
+</button>
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
 					<div id="pesan" class="alert alert-success" role="alert">
@@ -195,10 +196,11 @@
 									<td><?="Rp. ".number_format($value['jumlah']);?></td>
 
 									<td>
-										<a href="#" data-target="<?php echo $value['id_infak']; ?>"
-											class="btn btn-info btn-xs edit-infak"> <i class="fa fa-edit"></i>
-											<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>" data-target="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak']; ?>"
-												class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
+										<a href="<?php echo base_url(); ?>c_admin/edit_infak/<?php echo $value['id_infak']; ?>"
+											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
+										<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak'];; ?>"
+											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
+									</td>
 								</tr>
 								<?php endforeach; ?>
 							<tfoot>
@@ -224,7 +226,7 @@
 <!-- /page content -->
 
 <!-- Modal tambah infak-->
-<div class="modal fade" id="modal-crud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
@@ -244,13 +246,14 @@
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Input keterangan"
-							required>
+						<input type="text" name="keterangan" id="keterangan" class="form-control"
+							placeholder="Input keterangan" required>
 					</div>
 
 					<div class="form-group">
 						<label for="exampleInputPassword1">Jumlah</label>
-						<input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah" required>
+						<input type="text" name="jumlah" id="jumlah" class="form-control" placeholder="Input jumlah"
+							required>
 					</div>
 
 					<div class="form-group">

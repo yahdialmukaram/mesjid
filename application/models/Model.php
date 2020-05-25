@@ -28,10 +28,8 @@ class Model extends CI_Model
         $this->db->where('id_infak', $id);
         return $this->db->get('tb_infak')->row_array();
         
-        
-        
 	}
-	public function save_infak_edit($id,$data)
+	public function update($id,$data)
 	{
 		$this->db->where('id_infak', $id);
 		$this->db->update('tb_infak', $data);

@@ -21,6 +21,7 @@ class C_admin extends CI_Controller {
     }
     public function v_infak()
     { 
+        //jumlah total
 		$infak=$this->Model->tampil_infak();
 		foreach ($infak as $key => $value) {
 			$jumlah[]=$value['jumlah'];
@@ -59,32 +60,58 @@ class C_admin extends CI_Controller {
         
         
     }
-    public function edit_infak()
+    public function edit_infak($id)
     {
-		$id=$this->input->get('id');
-        $data= $this->Model->edit_infak($id);
-        echo json_encode($data);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/v_infak',$data);
-        // $this->load->view('admin/footer');
+
+        $data['edit'] = $this->Model->edit_infak($id);
         
-	}
-	public function save_infak_edit($id)
+
+        $this->load->view('admin/header');
+        $this->load->view('admin/edit_infak',$data);
+        $this->load->view('admin/footer');
+
+        
+    }
+
+    public function update($id)
     {
-        $data = [
-            'nama' => $this->input->post('nama'),
-            'keterangan' => $this->input->post('keterangan'),
-            'tanggal' => date('d-m-Y H:i:s'),
-            'jumlah' => $this->input->post('jumlah'),
-            
+        $data =[
+            'nama' =>$this->input->post('nama'),
+            'keterangan' =>$this->input->post('keterangan'),
+            'jumlah' =>$this->input->post('jumlah'),  
         ];
-        $this->Model->save_infak_edit($id,$data);
-        $this->session->set_flashdata('success', 'data behasil di edit');
-        
+        $this->Model->update($id,$data);
+        $this->session->set_flashdata('success', 'Data di ubah');
         redirect('c_admin/v_infak');
         
     }
 
+
+    
+    // public function edit_infak($id)
+    // {
+
+    //     $data = array(
+    //         'nama'  => $this->input->post('nama'),
+    //         'keterangan' => $this->input->post('keterangan'),
+    //         'tanggal' => $this->input->post('tanggal'),
+    //         'jumlah' => $this->input->post('jumlah'),
+    //     );
+
+
+    //     $data['edit'] = $this->Model->edit_infak($id);
+        // $this->load->view('admin/header');
+        // $this->load->view('admin/edit_infak',$data);
+        // $this->load->view('admin/footer');
+        // $this->session->set_flashdata('danger', 'value');
+        
+        // print_r($data);
+        
+
+// redirect('c_admin/v_infak');
+
+    }
+
   
-}
+
 
