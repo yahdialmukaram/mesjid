@@ -42,14 +42,27 @@ class Model extends CI_Model
         $this->db->where('password', $password);
         return $this->db->get();
     }
-//     public function hitung_jumlah()
-//     {
-   
-//     $this->db->select('SUM(jumlah) as total');
-//     $this->db->from('tb_infak');
-//     $this->db->where('jumlah');
-//  return   $this->db->get()->row()->total;
 
-//     }
+    public function tampil_kegiatan()
+    {
+        $this->db->from('tb_kegiatan');
+        $this->db->order_by('id_kegiatan', 'desc');
+        return $this->db->get()->result_array();
+        
+    }
+
+    public function save_kegiatan($data)
+    {
+        $this->db->insert('tb_kegiatan', $data);
+        
+    }
+    public function delete_kegiatan($id)
+    {
+        $this->db->where('id_kegiatan', $id);
+        $this->db->delete('tb_kegiatan');
+        
+        
+
+    }
     
 }

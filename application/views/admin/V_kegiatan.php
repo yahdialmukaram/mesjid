@@ -138,15 +138,15 @@
 
 						<div class="clearfix"></div>
 					</div>
-					<div class="alert alert-info" role="alert">
+					<div class="alert alert-warning" role="alert">
 								<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
-								<p>Manajemen kas masuk Dan anggaran</p>
+								<p>Manajemen kas Keluar</p>
 							</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
 
 					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
-  Tambah Data Kas
+  Tambah Data Kegiatan
 </button>
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
@@ -169,8 +169,7 @@
 							<thead>
 								<tr style="background-color: rgba(5, 24, 24, 0.205);">
 									<th>No</th>
-									<th>Name</th>
-									<th>Keterangan</th>
+									<th>Kegiatan</th>
 									<th>Tanggal</th>
 									<th>Jumlah</th>
 									<th>Aksi</th>
@@ -179,32 +178,22 @@
 							<tbody>
 								<?php
                                 $no = 1;
-                                foreach ($tb_infak as $key => $value):?>
+                                foreach ($tb_kegiatan as $key => $value):?>
 								<tr>
 									<td><?=$no++;?></td>
-									<td><?=$value['nama'];?></td>
-									<td><?=$value['keterangan'];?></td>
+									<td><?=$value['kegiatan'];?></td>
 									<td><?=$value['tanggal'];?></td>
 									<td><?="Rp. ".number_format($value['jumlah']);?></td>
 
 									<td>
-										<a href="<?php echo base_url(); ?>c_admin/edit_infak/<?php echo $value['id_infak']; ?>"
+										<a href="<?php echo base_url(); ?>c_admin/edit_kegiatan/<?php echo $value['id_kegiatan']; ?>"
 											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
-										<a href="<?php echo base_url(); ?>c_admin/delete_infak/<?php echo $value['id_infak'];; ?>"
+										<a href="<?php echo base_url(); ?>c_admin/delete_kegiatan/<?php echo $value['id_kegiatan'];; ?>"
 											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
 									</td>
 								</tr>
 								<?php endforeach; ?>
-							<tfoot>
-								<th> </th>
-								<th> </th>
-								<th> </th>
-
-								<th>Total :</th>
-								<th><?= 'Rp.' . number_format($total);?></th>
-
-							</tfoot>
-
+				
 							</tbody>
 						</table>
 
@@ -217,28 +206,24 @@
 </div>
 <!-- /page content -->
 
-<!-- Modal tambah infak-->
+<!-- Modal tambah kegiatan-->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
 	aria-hidden="true">
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
 			
-				<h5 class="modal-title" id="exampleModalLabel">Tambah kas</h5>
+				<h5 class="modal-title" id="exampleModalLabel">Tambah kegiatan (uang keluar)</h5>
 	
 			</div>
 			<div class="modal-body">
 
-				<form action="<?=base_url();?>c_admin/save_infak" method="POST">
-					<div class="form-group">
-						<label for="exampleInputEmail1">Nama</label>
-						<input type="text" name="nama" id="nama" class="form-control" placeholder="Input nama" required>
-
-					</div>
+				<form action="<?=base_url();?>c_admin/save_kegiatan" method="POST">
+				
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
-						<input type="text" name="keterangan" id="keterangan" class="form-control"
-							placeholder="Input keterangan" required>
+						<input type="text" name="kegiatan" id="kegiatan" class="form-control"
+							placeholder="Input kegiatan" required>
 					</div>
 
 					<div class="form-group">

@@ -67,8 +67,8 @@
 							<h3>General</h3>
 							<ul class="nav side-menu">
 								<li><a href="<?=base_url();?>c_admin"><i class="fa fa-home"></i> Home </a>
-								<li><a href="<?=base_url();?>c_admin/v_infak"><i class="fa fa-book"></i> Uang Masuk </a>
-								<li><a href="<?=base_url();?>c_login/v_infak"><i class="fa fa-money"></i> Uang Keluar </a> 	
+								<li><a href="<?=base_url();?>c_admin/v_infak"><i class="fa fa-book"></i> Pengelolaan Kas </a>
+								<li><a href="<?=base_url();?>c_admin/v_kegiatan"><i class="fa fa-money"></i> Uang Keluar </a> 	
 								<li><a href="<?=base_url();?>c_login/logout"><i class="fa fa-power-off"></i> Logout </a>
 
 								</li>

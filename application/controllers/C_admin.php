@@ -47,7 +47,7 @@ class C_admin extends CI_Controller {
             
         ];
         $this->Model->save_infak($data);
-        $this->session->set_flashdata('success', 'data behasil di simpan');
+        $this->session->set_flashdata('success', 'data kas behasil di simpan');
         
         redirect('c_admin/v_infak');
         
@@ -86,31 +86,41 @@ class C_admin extends CI_Controller {
         redirect('c_admin/v_infak');
         
     }
-
-
-    
-    // public function edit_infak($id)
-    // {
-
-    //     $data = array(
-    //         'nama'  => $this->input->post('nama'),
-    //         'keterangan' => $this->input->post('keterangan'),
-    //         'tanggal' => $this->input->post('tanggal'),
-    //         'jumlah' => $this->input->post('jumlah'),
-    //     );
-
-
-    //     $data['edit'] = $this->Model->edit_infak($id);
-        // $this->load->view('admin/header');
-        // $this->load->view('admin/edit_infak',$data);
-        // $this->load->view('admin/footer');
-        // $this->session->set_flashdata('danger', 'value');
+    public function v_kegiatan()
+    {
+        $data['tb_kegiatan'] = $this->Model->tampil_kegiatan();
         
-        // print_r($data);
+        $this->load->view('admin/header');
+        $this->load->view('admin/v_kegiatan',$data);
+        $this->load->view('admin/footer');
         
+    }
+    public function save_kegiatan()
+    {
+        $data = [
+            'kegiatan' => $this->input->post('kegiatan'),
+            // 'tanggal' => date('d-m-Y H:i:s'),
+            'tanggal' => $this->input->post('tanggal'),
+            'jumlah' => $this->input->post('jumlah'),
+            
+        ];
+        $this->Model->save_kegiatan($data);
+        $this->session->set_flashdata('success', 'data kegiatan  behasil di simpan');
+        
+        redirect('c_admin/v_kegiatan');
+// print_r($data);
+    }
 
-// redirect('c_admin/v_infak');
-
+    public function delete_kegiatan($id)
+    {
+        $this->Model->delete_kegiatan($id);
+        $this->session->set_flashdata('danger', 'Data success deleted');
+        
+        redirect('c_admin/v_kegiatan');
+        
+        
+        
+    }
     }
 
   
