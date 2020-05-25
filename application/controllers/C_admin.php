@@ -41,7 +41,8 @@ class C_admin extends CI_Controller {
         $data = [
             'nama' => $this->input->post('nama'),
             'keterangan' => $this->input->post('keterangan'),
-            'tanggal' => date('d-m-Y H:i:s'),
+            // 'tanggal' => date('d-m-Y H:i:s'),
+            'tanggal' => $this->input->post('tanggal'),
             'jumlah' => $this->input->post('jumlah'),
             
         ];
