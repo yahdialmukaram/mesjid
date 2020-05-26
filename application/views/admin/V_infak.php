@@ -125,7 +125,7 @@
 	<div class="">
 		<div class="page-title">
 			<div class="title_left">
-						</div>
+			</div>
 		</div>
 
 		<div class="clearfix"></div>
@@ -139,15 +139,16 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="alert alert-info" role="alert">
-								<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
-								<p>Manajemen kas masuk Dan anggaran</p>
-							</div>
+						<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
+						<p>Manajemen kas masuk Dan anggaran</p>
+					</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
 
-					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
-  Tambah Data Kas
-</button>
+					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
+						data-target="#exampleModal">
+						Tambah Data Kas
+					</button>
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
 					<div id="pesan" class="alert alert-success" role="alert">
@@ -196,26 +197,29 @@
 								</tr>
 								<?php endforeach; ?>
 							<tfoot>
-								<tr>	
-								<td colspan="3"> </td>
+								<tr>
+									<td colspan="3"> </td>
 
-								<td>Total :</td>
-								<td colspan="2"><?= 'Rp.' . number_format($total);?></td>
+									<td style="background-color: rgb(226, 241, 11);">Total :</td>
+									<td style="background-color: rgb(226, 241, 11);" colspan="0">
+										<?= 'Rp.' . number_format($total);?></td>
 								</tr>
-								
-								<tr>	
+
+								<tr>
 									<td colspan="3"> </td>
-	
-									<td>Pengeluaran :</td>
-									<td colspan="2"><?= 'Rp.' . number_format($pengeluaran);?></td>
-									</tr>
-									
-								<tr>	
+
+									<td style="background-color: rgb(226, 241, 11);">Pengeluaran :</td>
+									<td style="background-color: rgb(226, 241, 11);" colspan="0">
+										<?= 'Rp. ' . number_format($pengeluaran);?></td>
+								</tr>
+
+								<tr>
 									<td colspan="3"> </td>
-	
-									<td>Sisa Kas :</td>
-									<td colspan="2"><?= 'Rp.' . number_format($sisa);?></td>
-									</tr>
+
+									<td style="background-color: rgb(226, 241, 11);">Sisa Kas :</td>
+									<td style="background-color: rgb(226, 241, 11);" colspan="0">
+										<?= 'Rp. ' . number_format($sisa);?></td>
+								</tr>
 							</tfoot>
 
 							</tbody>
@@ -236,9 +240,9 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-			
+
 				<h5 class="modal-title" id="exampleModalLabel">Tambah kas</h5>
-	
+
 			</div>
 			<div class="modal-body">
 

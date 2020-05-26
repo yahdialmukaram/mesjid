@@ -193,6 +193,17 @@
 									</td>
 								</tr>
 								<?php endforeach; ?>
+
+								<tfoot>
+								<tr>
+									<td colspan="2"> </td>
+
+									<td style="background-color: rgb(226, 241, 11);">Total :</td>
+									<td style="background-color: rgb(226, 241, 11);" colspan="0">
+										<?= 'Rp.' . number_format($keluar);?></td>
+								</tr>
+
+							</tfoot>
 				
 							</tbody>
 						</table>

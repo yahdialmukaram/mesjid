@@ -25,15 +25,17 @@ class C_admin extends CI_Controller {
 		$infak=$this->Model->tampil_infak();
 		foreach ($infak as $key => $value) {
 			$jumlah[]=$value['jumlah'];
-		}
+        }
+        // pengeluaran
 		$pengeluaran_get=$this->Model->tampil_kegiatan();
 		foreach ($pengeluaran_get as $key => $value) {
 			$pengeluaran[]=$value['jumlah'];
 		}
-        $data ['total']= array_sum($jumlah);
-		$data['tb_infak']=$this->Model->tampil_infak();
+        $data['total']= array_sum($jumlah);
+        $data['tb_infak']=$this->Model->tampil_infak();
+        // pengeluaran
 		$data['pengeluaran']=array_sum($pengeluaran);
-		$data['sisa']=$data['total']-$data['pengeluaran'];
+		$data['sisa'] = $data['total'] - $data['pengeluaran'];
         $this->load->view('admin/header');
         $this->load->view('admin/v_infak',$data);
 		$this->load->view('admin/footer');
@@ -93,6 +95,12 @@ class C_admin extends CI_Controller {
     }
     public function v_kegiatan()
     {
+        // jumlah total keluar
+        $total_keluar=$this->Model->tampil_kegiatan();
+        foreach ($total_keluar as $key => $value) {
+            $keluar[]=$value['jumlah'];
+        }
+        $data['keluar']= array_sum($keluar);
         $data['tb_kegiatan'] = $this->Model->tampil_kegiatan();
         
         $this->load->view('admin/header');
