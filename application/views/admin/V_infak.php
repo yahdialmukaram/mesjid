@@ -196,13 +196,26 @@
 								</tr>
 								<?php endforeach; ?>
 							<tfoot>
-								<th> </th>
-								<th> </th>
-								<th> </th>
+								<tr>	
+								<td colspan="3"> </td>
 
-								<th>Total :</th>
-								<th><?= 'Rp.' . number_format($total);?></th>
-
+								<td>Total :</td>
+								<td colspan="2"><?= 'Rp.' . number_format($total);?></td>
+								</tr>
+								
+								<tr>	
+									<td colspan="3"> </td>
+	
+									<td>Pengeluaran :</td>
+									<td colspan="2"><?= 'Rp.' . number_format($pengeluaran);?></td>
+									</tr>
+									
+								<tr>	
+									<td colspan="3"> </td>
+	
+									<td>Sisa Kas :</td>
+									<td colspan="2"><?= 'Rp.' . number_format($sisa);?></td>
+									</tr>
 							</tfoot>
 
 							</tbody>

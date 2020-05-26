@@ -26,9 +26,14 @@ class C_admin extends CI_Controller {
 		foreach ($infak as $key => $value) {
 			$jumlah[]=$value['jumlah'];
 		}
+		$pengeluaran_get=$this->Model->tampil_kegiatan();
+		foreach ($pengeluaran_get as $key => $value) {
+			$pengeluaran[]=$value['jumlah'];
+		}
         $data ['total']= array_sum($jumlah);
-        $data['tb_infak']=$this->Model->tampil_infak();
-        
+		$data['tb_infak']=$this->Model->tampil_infak();
+		$data['pengeluaran']=array_sum($pengeluaran);
+		$data['sisa']=$data['total']-$data['pengeluaran'];
         $this->load->view('admin/header');
         $this->load->view('admin/v_infak',$data);
 		$this->load->view('admin/footer');
