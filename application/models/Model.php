@@ -60,9 +60,20 @@ class Model extends CI_Model
     {
         $this->db->where('id_kegiatan', $id);
         $this->db->delete('tb_kegiatan');
+     
+    }
+    public function edit_kegiatan($id)
+    {
+        $this->db->where('id_kegiatan', $id);
+        return $this->db->get('tb_kegiatan')->row_array();
+        
+    }
+    public function update_kegiatan($id,$data)
+    {
+        $this->db->where('id_kegiatan', $id);
+        $this->db->update('tb_kegiatan', $data);
         
         
-
     }
     
 }

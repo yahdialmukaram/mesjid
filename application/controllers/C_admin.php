@@ -131,9 +131,36 @@ class C_admin extends CI_Controller {
         
         redirect('c_admin/v_kegiatan');
         
-        
-        
     }
+
+    public function edit_kegiatan($id)
+    {
+        $data['edit_kegiatan'] = $this->Model->edit_kegiatan($id);
+     $this->load->view('admin/header');
+     $this->load->view('admin/edit_kegiatan',$data);
+     $this->load->view('admin/footer');
+    }
+
+    public function update_kegiatan($id)
+    {
+        $data = [
+            'kegiatan'=>$this->input->post('kegiatan'),
+            'tanggal'=>$this->input->post('tanggal'), 
+            'jumlah'=>$this->input->post('jumlah'), 
+        ];
+    $this->Model->update_kegiatan($id,$data);
+    $this->session->set_flashdata('success', 'data berhasil di ubah');
+    
+    redirect('c_admin/v_kegiatan');
+    
+    
+    
+
+    }
+
+
+   
+
     }
 
   

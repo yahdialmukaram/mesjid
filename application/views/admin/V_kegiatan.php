@@ -140,7 +140,7 @@
 					</div>
 					<div class="alert alert-warning" role="alert">
 								<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
-								<p>Manajemen kas Keluar</p>
+								<p>Manajemen kas Keluar. Tambah kegitan otomatis data kas akan berkurang</p>
 							</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
@@ -172,7 +172,7 @@
 									<th>Kegiatan</th>
 									<th>Tanggal</th>
 									<th>Jumlah</th>
-									<th>Aksi</th>
+									<th  class="text-center">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -185,12 +185,10 @@
 									<td><?=$value['tanggal'];?></td>
 									<td><?="Rp. ".number_format($value['jumlah']);?></td>
 
-									<td>
+									<td class="text-center">
 										<a href="<?php echo base_url(); ?>c_admin/edit_kegiatan/<?php echo $value['id_kegiatan']; ?>"
-											class="btn btn-info btn-xs"> <i class="fa fa-wrench"></i> </a>
-										<a href="<?php echo base_url(); ?>c_admin/delete_kegiatan/<?php echo $value['id_kegiatan'];; ?>"
-											class="btn btn-danger btn-xs"> <i class="fa fa-trash"></i> </a>
-									</td>
+											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> Edit </a>
+								
 								</tr>
 								<?php endforeach; ?>
 
@@ -198,7 +196,7 @@
 								<tr>
 									<td colspan="2"> </td>
 
-									<td style="background-color: rgb(226, 241, 11);">Total :</td>
+									<td style="background-color: rgb(226, 241, 11);">Total Pengeluaran :</td>
 									<td style="background-color: rgb(226, 241, 11);" colspan="0">
 										<?= 'Rp.' . number_format($keluar);?></td>
 								</tr>
