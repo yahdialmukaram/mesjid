@@ -125,7 +125,7 @@
 	<div class="">
 		<div class="page-title">
 			<div class="title_left">
-						</div>
+			</div>
 		</div>
 
 		<div class="clearfix"></div>
@@ -139,15 +139,16 @@
 						<div class="clearfix"></div>
 					</div>
 					<div class="alert alert-warning" role="alert">
-								<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
-								<p>Manajemen kas Keluar. Tambah kegitan otomatis data kas akan berkurang</p>
-							</div>
+						<h4 class="alert-heading"><i class="fa fa-info"></i> Pemberitahuan</h4>
+						<p>Manajemen kas Keluar. Tambah kegitan pengeluaran, otomatis data kas akan berkurang</p>
+					</div>
 					<div id="show-alert"></div>
 					<!-- Button trigger modal -->
 
-					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal" data-target="#exampleModal">
-  Tambah Data Kegiatan
-</button>
+					<button type="button" class="btn btn-primary fa fa-plus " data-toggle="modal"
+						data-target="#exampleModal">
+						Tambah Data Kegiatan
+					</button>
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
 					<div id="pesan" class="alert alert-success" role="alert">
@@ -172,7 +173,7 @@
 									<th>Kegiatan</th>
 									<th>Tanggal</th>
 									<th>Jumlah</th>
-									<th  class="text-center">Aksi</th>
+									<th class="text-center">Aksi</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -188,11 +189,11 @@
 									<td class="text-center">
 										<a href="<?php echo base_url(); ?>c_admin/edit_kegiatan/<?php echo $value['id_kegiatan']; ?>"
 											class="btn btn-info btn-xs"> <i class="fa fa-edit"></i> Edit </a>
-								
+
 								</tr>
 								<?php endforeach; ?>
 
-								<tfoot>
+							<tfoot>
 								<tr>
 									<td colspan="2"> </td>
 
@@ -202,7 +203,7 @@
 								</tr>
 
 							</tfoot>
-				
+
 							</tbody>
 						</table>
 
@@ -221,14 +222,14 @@
 	<div class="modal-dialog" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-			
+
 				<h5 class="modal-title" id="exampleModalLabel">Tambah kegiatan (uang keluar)</h5>
-	
+
 			</div>
 			<div class="modal-body">
 
 				<form action="<?=base_url();?>c_admin/save_kegiatan" method="POST">
-				
+
 					<div class="form-group">
 						<label for="exampleInputPassword1">Keterangan</label>
 						<input type="text" name="kegiatan" id="kegiatan" class="form-control"
