@@ -195,6 +195,7 @@ class C_admin extends CI_Controller {
         $pdf->Cell(60,6,'Tanggal',1,0);
         $pdf->Cell(60,6,'Jumlah',1,1);
         $pdf->SetFont('Arial','',10);
+        
         $infak = $this->db->get('tb_infak')->result();
         $no = 1;
         foreach ($infak as $row){
@@ -204,6 +205,28 @@ class C_admin extends CI_Controller {
             $pdf->Cell(60,6,$row->tanggal,1,0);
             $pdf->Cell(60,6,$row->jumlah,1,1); 
         }
+       
+
+        
+         $pdf->Cell(10,2,'',0,1);
+        $pdf->Cell(60,6,'',0,0);
+        $pdf->Cell(25,6,' ',0,0);
+        $pdf->Cell(30,6,' ',0,0);
+         $pdf->Cell(25,6,' ',0,0);
+        $pdf->Cell(60,6,' Total Transaksi :',1,0);
+        $pdf->Cell(60,6,' ',1,1);
+        $pdf->SetFont('Arial','',10);
+
+        // $jumlah[]=$row['jumlah'];
+        $masuk = $this->db->get('tb_infak')->result_array();
+        foreach ($masuk as $key => $value) {
+			$uang_masuk[]=$value['jumlah'];
+            // $pdf->Cell(60,6,$value[''],1,1); 
+        }
+        $data['total']= array_sum($uang_masuk);
+
+
+
         $pdf->Cell(480,20,'Duo koto',0,1,'C');
         $pdf->SetFont('Arial','B',12);    
         $pdf->Cell(480,20,'Petugas',0,1,'C'); 
