@@ -149,6 +149,18 @@
 						data-target="#exampleModal">
 						Tambah Data Kas
 					</button>
+								<a href="<?php echo base_url();?>c_admin/laporan_masuk"class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Keuangan Masuk</a>
+								<!-- <div class="x_content"> -->
+								<a href="#" data-toggle="modal" data-target="#modal_per_bulan"
+ 									class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Data 
+ 									Perbulan</a>
+ 						
+ 								<a href="#" data-toggle="modal" data-target="#modal_per_tahun"
+ 									class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Data 
+ 									Pertahun</a>
+ 							
+
+
 					<!-- alert simpan data -->
 					<?php if ($this->session->flashdata('success')):?>
 					<div id="pesan" class="alert alert-success" role="alert">
@@ -283,3 +295,108 @@
 		</div>
 	</div>
 </div>
+
+<!-- Modal laporan per tahun-->
+<div class="modal fade" id="modal_per_tahun" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+ 	aria-hidden="true">
+ 	<div class="modal-dialog" role="document">
+ 		<div class="modal-content">
+ 			<div class="modal-header">
+ 				<h5 class="modal-title">Cetak Laporan</h5>
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ 					<span aria-hidden="true">&times;</span>
+ 				</button>
+ 			</div>
+ 			<div class="modal-body">
+ 				<form class="horizontal-form" action="<?php echo base_url();?>controller/cari_laporan_tahunan"
+ 					method="post">
+ 					<div class="form-group">
+ 						<div id="" class="alert alert-warning alert-dismissible">
+ 							<button type="button" class="close" data-dismiss="alert"
+ 								aria-hidden="true">&times;</button>
+ 							<h4><i class="icon fa fa-info"></i> Pemberitahuan !</h4>
+ 							Pilih Tahun laporan !!
+ 						</div>
+ 						<div class="col-md-4 col-sm-3 col-xs-12">
+
+ 							<label for="">Pilih Tahun</label>
+ 						</div>
+ 						<div class="col-md-4 col-sm-9 col-xs-12">
+ 							<select name="tahun" id="" class="form-control">
+ 								<?php for ($i=2005; $i < 2030 ; $i++):?>
+ 								<option value="<?php echo $i;?>"><?php echo $i;?></option>
+ 								<?php endfor;?>
+ 							</select>
+ 						</div>
+ 						<small id="helpId" class="text-muted"></small>
+ 					</div>
+ 			</div>
+ 			<div class="modal-footer">
+ 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 				<button type="submit" class="btn btn-primary">Cetak</button>
+ 			</div>
+ 			</form>
+ 		</div>
+ 	</div>
+ </div>
+
+<!-- Modal pilih laporan per bulan -->
+<div class="modal fade" id="modal_per_bulan" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+ 	aria-hidden="true">
+ 	<div class="modal-dialog" role="document">
+ 		<div class="modal-content">
+ 			<div class="modal-header">
+ 				<h5 class="modal-title">Cetak Laporan</h5>
+ 				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ 					<span aria-hidden="true">&times;</span>
+ 				</button>
+ 			</div>
+ 			<div class="modal-body">
+ 				<form class="horizontal-form" action="<?php echo base_url();?>controller/cari_laporan_bulanan"
+ 					method="post">
+ 					<div class="form-group">
+ 						<div id="" class="alert alert-warning alert-dismissible">
+ 							<button type="button" class="close" data-dismiss="alert"
+ 								aria-hidden="true">&times;</button>
+ 							<h4><i class="icon fa fa-info"></i> Pemberitahuan !</h4>
+ 							Pilih Bulan dan tahun laporan !!
+ 						</div>
+ 						<div class="col-md-4 col-sm-3 col-xs-12">
+
+ 							<label for="">Pilih Bulan dan tahun</label>
+ 						</div>
+
+ 						<div class="col-md-4 col-sm-9 col-xs-12">
+ 							<select name="bulan" id="" class="form-control">
+ 								<option value="01">Januari</option>
+ 								<option value="02">Februari</option>
+ 								<option value="03">Maret</option>
+ 								<option value="04">April</option>
+ 								<option value="05">Mei</option>
+ 								<option value="06">Juni</option>
+ 								<option value="07">Juli</option>
+ 								<option value="08">Agustus</option>
+ 								<option value="09">September</option>
+ 								<option value="10">Oktober</option>
+ 								<option value="11">November</option>
+ 								<option value="12">Desember</option>
+ 							</select>
+ 						</div>
+ 						<div class="col-md-4 col-sm-9 col-xs-12">
+ 							<select name="tahun" id="" class="form-control">
+ 								<?php for ($i=2005; $i < 2030 ; $i++):?>
+ 								<option value="<?php echo $i;?>"><?php echo $i;?></option>
+ 								<?php endfor;?>
+ 							</select>
+ 						</div>
+ 						<small id="helpId" class="text-muted"></small>
+ 					</div>
+ 			</div>
+ 			<div class="modal-footer">
+ 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+ 				<button type="submit" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</button>
+ 			</div>
+ 			</form>
+ 		</div>
+ 	</div>
+ </div>
