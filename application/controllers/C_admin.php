@@ -199,14 +199,15 @@ class C_admin extends CI_Controller {
         $infak = $this->db->get('tb_infak')->result();
         $no = 1;
         foreach ($infak as $row){
+			$jumlah[]=$row->jumlah;
             $pdf->Cell(10,6,$no++,1,0);
             $pdf->Cell(60,6,$row->nama,1,0);
             $pdf->Cell(70,6,$row->keterangan,1,0);
             $pdf->Cell(60,6,$row->tanggal,1,0);
             $pdf->Cell(60,6,$row->jumlah,1,1); 
         }
-       
-
+	   
+		$total=array_sum($jumlah);
         
          $pdf->Cell(10,2,'',0,1);
         $pdf->Cell(60,6,'',0,0);
@@ -214,16 +215,8 @@ class C_admin extends CI_Controller {
         $pdf->Cell(30,6,' ',0,0);
          $pdf->Cell(25,6,' ',0,0);
         $pdf->Cell(60,6,' Total Transaksi :',1,0);
-        $pdf->Cell(60,6,' ',1,1);
+        $pdf->Cell(60,6,'Rp. '.number_format($total),1,1);
         $pdf->SetFont('Arial','',10);
-
-        // $jumlah[]=$row['jumlah'];
-        $masuk = $this->db->get('tb_infak')->result_array();
-        foreach ($masuk as $key => $value) {
-			$uang_masuk[]=$value['jumlah'];
-            // $pdf->Cell(60,6,$value[''],1,1); 
-        }
-        $data= array_sum($uang_masuk);
 
 
 
