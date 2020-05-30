@@ -223,7 +223,7 @@ class C_admin extends CI_Controller {
 			$uang_masuk[]=$value['jumlah'];
             // $pdf->Cell(60,6,$value[''],1,1); 
         }
-        $data['total']= array_sum($uang_masuk);
+        $data= array_sum($uang_masuk);
 
 
 
