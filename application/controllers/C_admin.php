@@ -8,6 +8,15 @@ class C_admin extends CI_Controller {
     {
         parent::__construct();
         $this->load->library('pdf');
+          date_default_timezone_set('Asia/Jakarta');
+    
+    //ini pnting untuk ke amanan login
+        if ($this->session->userdata('level') !== 'admin' or 
+            $this->session->userdata('logged_in') !== true
+            ) {
+        $this->session->set_flashdata('error', 'Anda tidak punya akses untuk menu admin');
+        redirect('c_login');
+        }
         
         //Do your magic here
     }
@@ -161,7 +170,7 @@ class C_admin extends CI_Controller {
     }
     public function laporan_masuk()
     {
-      
+        error_reporting(0); // AGAR ERROR MASALAH VERSI PHP TIDAK MUNCUL
         $pdf = new FPDF('l','mm','A4');
         // membuat halaman baru
         $pdf->AddPage();

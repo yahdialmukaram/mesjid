@@ -151,13 +151,13 @@
 					</button>
 								<a href="<?php echo base_url();?>c_admin/laporan_masuk"class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Keuangan Masuk</a>
 								<!-- <div class="x_content"> -->
-								<a href="#" data-toggle="modal" data-target="#modal_per_bulan"
+								<!-- <a href="#" data-toggle="modal" data-target="#modal_per_bulan"
  									class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Data 
  									Perbulan</a>
  						
  								<a href="#" data-toggle="modal" data-target="#modal_per_tahun"
  									class="btn btn-warning btn-sm"><i class="fa fa-print"></i> Cetak Data 
- 									Pertahun</a>
+ 									Pertahun</a> -->
  							
 
 
